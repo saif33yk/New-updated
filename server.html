@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server | PARADISE ROLEPLAY</title>
+    <link rel="icon" type="image/x-icon" href="https://r2.fivemanage.com/52eJuqoGTwb7xhUEC0or9/PRP_Logo_No_BG.png">
+    <meta name="description" content="Connect to PARADISE ROLEPLAY - The most immersive FiveM roleplay experience."/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#eae733',
+              secondary: '#f9e679',
+              tertiary: '#87801c',
+              dark: '#0F0F0F',
+              'dark-light': '#1A1A1A'
+            },
+            fontFamily: {
+              sans: ['Montserrat', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="style.css"/>
+  </head>
+  <body class="bg-dark text-white font-sans">
+    <!-- Scroll Buttons -->
+    <div class="fixed right-6 bottom-24 z-[9999] hidden md:block">
+      <button id="scrollToTop" class="bg-primary/20 backdrop-blur-xl p-4 rounded-full shadow-2xl hover:bg-primary/30 transition-all duration-300 group opacity-0 invisible scale-90 hover:scale-110">
+        <i class="fas fa-chevron-up text-xl text-primary group-hover:text-white transition-all duration-300"></i>
+        <div class="absolute -inset-1 bg-primary/20 rounded-full blur opacity-0 group-hover:opacity-50 transition-all duration-300"></div>
+      </button>
+    </div>
+    <div class="fixed right-6 top-1/2 -translate-y-1/2 z-[9999] hidden md:block">
+      <button id="scrollToBottom" class="bg-primary/20 backdrop-blur-xl p-4 rounded-full shadow-2xl hover:bg-primary/30 transition-all duration-300 group opacity-0 invisible scale-90 hover:scale-110">
+        <i class="fas fa-chevron-down text-xl text-primary group-hover:text-white transition-all duration-300"></i>
+        <div class="absolute -inset-1 bg-primary/20 rounded-full blur opacity-0 group-hover:opacity-50 transition-all duration-300"></div>
+      </button>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="bg-[#1a1d24]/95 backdrop-blur-md shadow-lg fixed w-full z-10">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-between items-center py-4">
+          <div class="flex items-center">
+            <a href="index.html" class="text-2xl font-bold flex items-center gap-1">
+              <span class="text-[#d0d334]">PARADISE</span> <span class="text-white">ROLEPLAY</span>
+              <!-- <div class="flex items-center gap-1 ml-2">
+                <span class="relative group">
+                  <span class="absolute -inset-1 bg-gradient-to-r from-[#f59e0b] to-[#d97706] rounded-full blur opacity-30 group-hover:opacity-60 transition duration-300"></span>
+                  <i class="fas fa-crown text-[#f59e0b] text-xs group-hover:scale-110 transition-all duration-300"></i>
+                </span>
+                <span class="relative group">
+                  <span class="absolute -inset-1 bg-gradient-to-r from-[#969605] to-[#969605] rounded-full blur opacity-30 group-hover:opacity-60 transition duration-300"></span>
+                  <i class="fas fa-star text-[#d0d334] text-xs group-hover:scale-110 transition-all duration-300"></i>
+                </span>
+                <span class="relative group">
+                  <span class="absolute -inset-1 bg-gradient-to-r from-[#3b82f6] to-[#2563eb] rounded-full blur opacity-30 group-hover:opacity-60 transition duration-300"></span>
+                  <i class="fas fa-gem text-[#3b82f6] text-xs group-hover:scale-110 transition-all duration-300"></i>
+                </span>
+              </div> -->
+            </a>
+          </div>
+          <div class="hidden md:flex space-x-6">
+            <a href="index.html" class="text-white hover:text-[#d0d334] transition duration-300">Home</a>
+            <a href="about.html" class="text-white hover:text-[#d0d334] transition duration-300">About</a>
+            <a href="server.html" class="text-[#d0d334] border-b-2 border-[#d0d334] pb-1 transition duration-300">Server</a>
+            <a href="gallery.html" class="text-white hover:text-[#d0d334] transition duration-300">Gallery</a>
+            <a href="contact.html" class="text-white hover:text-[#d0d334] transition duration-300">Support Team</a>
+            <div class="relative group hidden md:block">
+              <button class="text-white hover:text-[#d0d334] transition duration-300 flex items-center gap-1">
+                TOS
+                <i class="fas fa-chevron-down text-xs transition-transform duration-300 group-hover:rotate-180"></i>
+              </button>
+              <div class="absolute left-0 mt-2 w-48 bg-[#1a1d24]/95 backdrop-blur-md rounded-lg shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                <a href="terms.html" class="block px-4 py-2 text-white hover:text-[#d0d334] hover:bg-dark/50 transition duration-300 flex items-center gap-2">
+                  <i class="fas fa-file-contract text-xs"></i>
+                  Terms of Service
+                </a>
+                <a href="privacy.html" class="block px-4 py-2 text-white hover:text-[#d0d334] hover:bg-dark/50 transition duration-300 flex items-center gap-2">
+                  <i class="fas fa-shield-alt text-xs"></i>
+                  Privacy Policy
+                </a>
+                <a href="rules.html" class="block px-4 py-2 text-white hover:text-[#d0d334] hover:bg-dark/50 transition duration-300 flex items-center gap-2">
+                  <i class="fas fa-gavel text-xs"></i>
+                  Rules
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="md:hidden flex items-center">
+            <button id="mobile-menu-button" class="text-white hover:text-[#d0d334] focus:outline-none p-2 relative group">
+              <div class="absolute -inset-1 bg-primary/20 rounded-full blur opacity-0 group-hover:opacity-50 transition-all duration-300"></div>
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden fixed inset-x-0 top-[73px] bg-dark-light/95 backdrop-blur-md transition-all duration-300 ease-in-out transform translate-y-[-20px] opacity-0 rounded-b-xl shadow-lg border border-white/5">
+        <div class="px-4 py-4 space-y-2">
+          <a href="index.html" class="block px-4 py-3 text-white hover:text-primary hover:bg-dark/50 rounded-lg transition duration-300 flex items-center" data-mobile-link="true">
+            <i class="fas fa-home mr-2"></i> Home
+          </a>
+          <a href="about.html" class="block px-4 py-3 text-white hover:text-primary hover:bg-dark/50 rounded-lg transition duration-300 flex items-center" data-mobile-link="true">
+            <i class="fas fa-info-circle mr-2"></i> About
+          </a>
+          <a href="server.html" class="block px-4 py-3 text-primary bg-dark/50 rounded-lg transition duration-300 flex items-center" data-mobile-link="true">
+            <i class="fas fa-server mr-2"></i> Server
+          </a>
+          <a href="gallery.html" class="block px-4 py-3 text-white hover:text-primary hover:bg-dark/50 rounded-lg transition duration-300 flex items-center" data-mobile-link="true">
+            <i class="fas fa-images mr-2"></i> Gallery
+          </a>
+          <a href="contact.html" class="block px-4 py-3 text-white hover:text-primary hover:bg-dark/50 rounded-lg transition duration-300 flex items-center" data-mobile-link="true">
+            <i class="fas fa-envelope mr-2"></i> Contact
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="relative pt-24 pb-12 md:pt-32 md:pb-16 bg-dark-light">
+      <div class="absolute inset-0 overflow-hidden opacity-20">
+        <img src="https://forum.cfx.re/uploads/default/original/4X/7/5/e/75e7441dcd9f8a3a10cba5b43955edb414f87eb5.jpeg" alt="Background" class="w-full h-full object-cover">
+      </div>
+      <div class="container mx-auto px-4 relative z-10 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4" data-aos="fade-up">Server <span class="text-primary">Information</span></h1>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+          Connect to our FiveM server and start your roleplay adventure
+        </p>
+      </div>
+    </header>
+
+    <!-- Quick Connect -->
+    <section class="py-12 bg-dark">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+          <div class="bg-[#1a1d24]/95 backdrop-blur-md rounded-xl shadow-xl overflow-hidden border border-[#d0d334]/20" data-aos="fade-up">
+            <div class="p-4 md:p-8">
+              <div class="w-full h-16 bg-[#d0d334]/10 rounded-lg mb-6 flex items-center justify-center">
+                <i class="fas fa-plug text-[#d0d334] text-2xl"></i>
+              </div>
+              
+              <div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
+                <div class="mb-4 md:mb-0">
+                  <h2 class="text-2xl font-bold mb-1">Quick Connect</h2>
+                  <p class="text-gray-400">Connect to our server instantly</p>
+                </div>
+              </div>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-[#12151a] p-4 rounded-lg border border-[#d0d334]/20 hover:border-[#d0d334]/40 transition duration-300">
+                  <div class="flex items-center justify-between flex-wrap gap-2">
+                    <div class="flex items-center flex-1 min-w-[200px]">
+                      <div class="bg-[#d0d334]/10 p-2.5 rounded-lg mr-3">
+                        <i class="fas fa-network-wired text-[#d0d334] text-lg"></i>
+                      </div>
+                      <code class="text-[#d0d334] text-sm break-all">play.eyesroleplay.com</code>
+                    </div>
+                    <button id="copy-ip" class="text-gray-400 hover:text-[#d0d334] transition duration-300 ml-auto p-2 hover:bg-[#d0d334]/5 rounded-lg">
+                      <i class="fas fa-copy"></i>
+                    </button>
+                  </div>
+                </div>
+                
+                <div class="bg-[#12151a] p-4 rounded-lg border border-[#d0d334]/20 hover:border-[#d0d334]/40 transition duration-300">
+                  <div class="flex items-center justify-between flex-wrap gap-2">
+                    <div class="flex items-center flex-1 min-w-[200px]">
+                      <div class="bg-[#d0d334]/10 p-2.5 rounded-lg mr-3">
+                        <i class="fas fa-link text-[#d0d334] text-lg"></i>
+                      </div>
+                      <code class="text-[#d0d334] text-sm break-all">fivem://connect/play.eyesroleplay.com</code>
+                    </div>
+                    <button id="copy-direct" class="text-gray-400 hover:text-[#d0d334] transition duration-300 ml-auto p-2 hover:bg-[#d0d334]/5 rounded-lg">
+                      <i class="fas fa-copy"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Server Status & Features -->
+    <section class="py-12 bg-dark-light">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Server Status -->
+          <div class="bg-dark/50 backdrop-blur-sm rounded-xl shadow-xl overflow-hidden" data-aos="fade-up">
+            <div class="p-4">
+              <div class="flex items-center justify-between mb-4">
+                <div>
+                  <h2 class="text-xl font-bold mb-1">Server Status</h2>
+                  <p class="text-gray-400 text-sm">Real-time statistics</p>
+                </div>
+                <div class="flex items-center">
+                  <div class="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
+                  <span class="text-green-500 text-sm">Online</span>
+                </div>
+              </div>
+              
+              <div class="grid grid-cols-2 gap-2">
+                <!-- Modernize edilmiş Active Players paneli -->
+                <div class="relative bg-dark p-3 rounded-lg group hover:bg-dark-light/80 transition duration-300 overflow-hidden">
+                  <div class="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+                  <div class="relative z-10">
+                    <div class="flex items-center">
+                      <div class="bg-primary/20 text-primary p-1.5 w-8 h-8 flex items-center justify-center rounded-lg mr-2 group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
+                        <i class="fas fa-users text-sm group-hover:text-white transition-all duration-300"></i>
+                      </div>
+                      <div>
+                        <div class="text-lg font-bold relative group">
+                          <span class="text-primary transition-all duration-300">73</span>
+                          <span class="text-gray-400 text-sm">/128</span>
+                          <div class="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                        </div>
+                        <p class="text-gray-400 text-xs">Active Players</p>
+                      </div>
+                    </div>
+                    <div class="w-full bg-gray-700/50 rounded-full h-1.5 mt-2 overflow-hidden">
+                      <div class="bg-primary h-1.5 rounded-full relative animate-pulse-slow" style="width: 57%">
+                        <div class="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent animate-gradient-x"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Modernize edilmiş Uptime paneli -->
+                <div class="relative bg-dark p-3 rounded-lg group hover:bg-dark-light/80 transition duration-300 overflow-hidden">
+                  <div class="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+                  <div class="relative z-10">
+                    <div class="flex items-center">
+                      <div class="bg-primary/20 text-primary p-1.5 w-8 h-8 flex items-center justify-center rounded-lg mr-2 group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
+                        <i class="fas fa-clock text-sm group-hover:text-white transition-all duration-300"></i>
+                      </div>
+                      <div>
+                        <div class="text-lg font-bold relative group">
+                          <span class="text-primary transition-all duration-300">24/7</span>
+                          <div class="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                        </div>
+                        <p class="text-gray-400 text-xs">Uptime</p>
+                      </div>
+                    </div>
+                    <div class="w-full bg-gray-700/50 rounded-full h-1.5 mt-2 overflow-hidden">
+                      <div class="bg-primary h-1.5 rounded-full relative animate-pulse-slow" style="width: 100%">
+                        <div class="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent animate-gradient-x"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-dark p-3 rounded-lg hover:bg-dark-light transition duration-300">
+                  <div class="flex items-center">
+                    <div class="bg-primary/20 text-primary p-1.5 rounded-lg mr-2">
+                      <i class="fas fa-server text-sm"></i>
+                    </div>
+                    <div>
+                      <div class="text-lg font-bold">32GB</div>
+                      <p class="text-gray-400 text-xs">RAM</p>
+                    </div>
+                  </div>
+                  <div class="w-full bg-gray-700 rounded-full h-1.5 mt-2">
+                    <div class="bg-primary h-1.5 rounded-full" style="width: 75%"></div>
+                  </div>
+                </div>
+
+                <div class="bg-dark p-3 rounded-lg hover:bg-dark-light transition duration-300">
+                  <div class="flex items-center">
+                    <div class="bg-primary/20 text-primary p-1.5 rounded-lg mr-2">
+                      <i class="fas fa-signal text-sm"></i>
+                    </div>
+                    <div>
+                      <div class="text-lg font-bold">50ms</div>
+                      <p class="text-gray-400 text-xs">Ping</p>
+                    </div>
+                  </div>
+                  <div class="w-full bg-gray-700 rounded-full h-1.5 mt-2">
+                    <div class="bg-primary h-1.5 rounded-full" style="width: 90%"></div>
+                  </div>
+                </div>
+
+                <div class="bg-dark p-3 rounded-lg hover:bg-dark-light transition duration-300">
+                  <div class="flex items-center">
+                    <div class="bg-primary/20 text-primary p-1.5 rounded-lg mr-2">
+                      <i class="fas fa-microchip text-sm"></i>
+                    </div>
+                    <div>
+                      <div class="text-lg font-bold">8 Core</div>
+                      <p class="text-gray-400 text-xs">CPU</p>
+                    </div>
+                  </div>
+                  <div class="w-full bg-gray-700 rounded-full h-1.5 mt-2">
+                    <div class="bg-primary h-1.5 rounded-full" style="width: 65%"></div>
+                  </div>
+                </div>
+
+                <div class="bg-dark p-3 rounded-lg hover:bg-dark-light transition duration-300">
+                  <div class="flex items-center">
+                    <div class="bg-primary/20 text-primary p-1.5 rounded-lg mr-2">
+                      <i class="fas fa-hdd text-sm"></i>
+                    </div>
+                    <div>
+                      <div class="text-lg font-bold">1TB</div>
+                      <p class="text-gray-400 text-xs">SSD</p>
+                    </div>
+                  </div>
+                  <div class="w-full bg-gray-700 rounded-full h-1.5 mt-2">
+                    <div class="bg-primary h-1.5 rounded-full" style="width: 40%"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-4 text-sm">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-gray-400">Last Restart</span>
+                  <span class="text-primary">2 days ago</span>
+                </div>
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-gray-400">Next Maintenance</span>
+                  <span class="text-primary">5 days</span>
+                </div>
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-gray-400">Version</span>
+                  <span class="text-primary">v1.8.5</span>
+                </div>
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-gray-400">Average Ping</span>
+                  <span class="text-primary">45-60ms</span>
+                </div>
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-gray-400">Server Location</span>
+                  <span class="text-primary">Frankfurt, DE</span>
+                </div>
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-gray-400">Backup Frequency</span>
+                  <span class="text-primary">Every 6 hours</span>
+                </div>
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-gray-400">DDoS Protection</span>
+                  <span class="text-primary">Enabled</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-gray-400">Server Type</span>
+                  <span class="text-primary">Dedicated</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-gray-400">Server Region</span>
+                  <span class="text-primary">Europe</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-gray-400">Server Provider</span>
+                  <span class="text-primary">OVH</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-gray-400">Server Uptime</span>
+                  <span class="text-primary">99.9%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Features -->
+          <div class="bg-dark/50 backdrop-blur-sm rounded-xl shadow-xl overflow-hidden" data-aos="fade-up">
+            <div class="p-4">
+              <div class="flex items-center justify-between mb-1">
+                <div>
+                  <h2 class="text-xl font-bold mb-1">Featured Features</h2>
+                  <p class="text-gray-400 text-sm">Our best features</p>
+                </div>
+                <div class="bg-primary/20 text-primary p-2 rounded-full">
+                  <i class="fas fa-star text-sm"></i>
+                </div>
+              </div>
+              
+              <div class="space-y-2">
+                <div class="flex items-center bg-dark p-3 rounded-lg hover:bg-dark-light transition duration-300">
+                  <div class="bg-primary/20 text-primary p-1.5 rounded-lg mr-3">
+                    <i class="fas fa-car text-sm"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-sm">Custom Vehicles</h3>
+                    <p class="text-gray-400 text-xs">200+ custom vehicles</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-center bg-dark p-3 rounded-lg hover:bg-dark-light transition duration-300">
+                  <div class="bg-primary/20 text-primary p-1.5 rounded-lg mr-3">
+                    <i class="fas fa-briefcase text-sm"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-sm">Job System</h3>
+                    <p class="text-gray-400 text-xs">30+ different jobs</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-center bg-dark p-3 rounded-lg hover:bg-dark-light transition duration-300">
+                  <div class="bg-primary/20 text-primary p-1.5 rounded-lg mr-3">
+                    <i class="fas fa-home text-sm"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-sm">Housing System</h3>
+                    <p class="text-gray-400 text-xs">1000+ custom houses</p>
+                  </div>
+                </div>
+
+                <div class="flex items-center bg-dark p-3 rounded-lg hover:bg-dark-light transition duration-300">
+                  <div class="bg-primary/20 text-primary p-1.5 rounded-lg mr-3">
+                    <i class="fas fa-shield-alt text-sm"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-sm">Police System</h3>
+                    <p class="text-gray-400 text-xs">Advanced police system with realistic features</p>
+                  </div>
+                </div>
+
+                <div class="flex items-center bg-dark p-3 rounded-lg hover:bg-dark-light transition duration-300">
+                  <div class="bg-primary/20 text-primary p-1.5 rounded-lg mr-3">
+                    <i class="fas fa-store text-sm"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-sm">Market System</h3>
+                    <p class="text-gray-400 text-xs">50+ custom stores</p>
+                  </div>
+                </div>
+
+                <div class="flex items-center bg-dark p-3 rounded-lg hover:bg-dark-light transition duration-300">
+                  <div class="bg-primary/20 text-primary p-1.5 rounded-lg mr-3">
+                    <i class="fas fa-ambulance text-sm"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-sm">EMS System</h3>
+                    <p class="text-gray-400 text-xs">Advanced medical system</p>
+                  </div>
+                </div>
+
+                <div class="flex items-center bg-dark p-3 rounded-lg hover:bg-dark-light transition duration-300">
+                  <div class="bg-primary/20 text-primary p-1.5 rounded-lg mr-3">
+                    <i class="fas fa-gavel text-sm"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-sm">Justice System</h3>
+                    <p class="text-gray-400 text-xs">Court and penalty system</p>
+                  </div>
+                </div>
+
+                <div class="flex items-center bg-dark p-3 rounded-lg hover:bg-dark-light transition duration-300">
+                  <div class="bg-primary/20 text-primary p-1.5 rounded-lg mr-3">
+                    <i class="fas fa-warehouse text-sm"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-sm">Business System</h3>
+                    <p class="text-gray-400 text-xs">Own and manage your business</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Server Rules -->
+          <div class="bg-dark/50 backdrop-blur-sm rounded-xl shadow-xl overflow-hidden" data-aos="fade-up">
+            <div class="p-4">
+              <div class="flex items-center justify-between mb-4">
+                <div>
+                  <h2 class="text-xl font-bold mb-1">Server Rules</h2>
+                  <p class="text-gray-400 text-sm">Important guidelines</p>
+                </div>
+                <div class="bg-primary/20 text-primary p-2 rounded-full">
+                  <i class="fas fa-gavel text-sm"></i>
+                </div>
+              </div>
+              
+              <div class="space-y-2">
+                <div class="bg-dark p-3 rounded-lg hover:bg-dark-light transition duration-300">
+                  <div class="flex items-center mb-2">
+                    <div class="bg-primary/20 text-primary p-1.5 rounded-lg mr-2">
+                      <i class="fas fa-exclamation-circle text-sm"></i>
+                    </div>
+                    <h3 class="font-bold text-sm">General Rules</h3>
+                  </div>
+                  <ul class="space-y-1 text-gray-300 text-xs">
+                    <li class="flex items-start">
+                      <i class="fas fa-check text-primary mt-0.5 mr-1.5"></i>
+                      <span>Respect all players</span>
+                    </li>
+                    <li class="flex items-start">
+                      <i class="fas fa-check text-primary mt-0.5 mr-1.5"></i>
+                      <span>No cheating or exploits</span>
+                    </li>
+                    <li class="flex items-start">
+                      <i class="fas fa-check text-primary mt-0.5 mr-1.5"></i>
+                      <span>Follow roleplay rules</span>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div class="bg-dark p-3 rounded-lg hover:bg-dark-light transition duration-300">
+                  <div class="flex items-center mb-2">
+                    <div class="bg-primary/20 text-primary p-1.5 rounded-lg mr-2">
+                      <i class="fas fa-microphone text-sm"></i>
+                    </div>
+                    <h3 class="font-bold text-sm">Voice Chat</h3>
+                  </div>
+                  <ul class="space-y-1 text-gray-300 text-xs">
+                    <li class="flex items-start">
+                      <i class="fas fa-check text-primary mt-0.5 mr-1.5"></i>
+                      <span>Use push-to-talk</span>
+                    </li>
+                    <li class="flex items-start">
+                      <i class="fas fa-check text-primary mt-0.5 mr-1.5"></i>
+                      <span>No background noise</span>
+                    </li>
+                    <li class="flex items-start">
+                      <i class="fas fa-check text-primary mt-0.5 mr-1.5"></i>
+                      <span>Stay in character</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="bg-dark p-3 rounded-lg hover:bg-dark-light transition duration-300">
+                  <div class="flex items-center mb-2">
+                    <div class="bg-primary/20 text-primary p-1.5 rounded-lg mr-2">
+                      <i class="fas fa-user-shield text-sm"></i>
+                    </div>
+                    <h3 class="font-bold text-sm">Staff Rules</h3>
+                  </div>
+                  <ul class="space-y-1 text-gray-300 text-xs">
+                    <li class="flex items-start">
+                      <i class="fas fa-check text-primary mt-0.5 mr-1.5"></i>
+                      <span>Respect staff decisions</span>
+                    </li>
+                    <li class="flex items-start">
+                      <i class="fas fa-check text-primary mt-0.5 mr-1.5"></i>
+                      <span>No staff impersonation</span>
+                    </li>
+                    <li class="flex items-start">
+                      <i class="fas fa-check text-primary mt-0.5 mr-1.5"></i>
+                      <span>Report issues properly</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="bg-dark p-3 rounded-lg hover:bg-dark-light transition duration-300">
+                  <div class="flex items-center mb-2">
+                    <div class="bg-primary/20 text-primary p-1.5 rounded-lg mr-2">
+                      <i class="fas fa-user-edit text-sm"></i>
+                    </div>
+                    <h3 class="font-bold text-sm">Character Development</h3>
+                  </div>
+                  <ul class="space-y-1 text-gray-300 text-xs">
+                    <li class="flex items-start">
+                      <i class="fas fa-check text-primary mt-0.5 mr-1.5"></i>
+                      <span>Create realistic backstories</span>
+                    </li>
+                    <li class="flex items-start">
+                      <i class="fas fa-check text-primary mt-0.5 mr-1.5"></i>
+                      <span>Maintain consistent character traits</span>
+                    </li>
+                    <li class="flex items-start">
+                      <i class="fas fa-check text-primary mt-0.5 mr-1.5"></i>
+                      <span>No powergaming or metagaming</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark py-8">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          <!-- Column 1 -->
+          <div>
+            <a href="index.html" class="text-2xl font-bold text-primary">PARADISE <span class="text-white">ROLEPLAY</span></a>
+            <p class="mt-4 text-gray-400">Experience the most immersive FiveM roleplay server with custom scripts, vehicles, and active community.</p>
+          </div>
+          
+          <!-- Column 2 -->
+          <div>
+            <h4 class="text-white font-bold mb-4">Navigation</h4>
+            <ul class="space-y-2">
+              <li><a href="index.html" class="text-gray-400 hover:text-primary transition duration-300">Home</a></li>
+              <li><a href="about.html" class="text-gray-400 hover:text-primary transition duration-300">About</a></li>
+              <li><a href="server.html" class="text-primary transition duration-300">Server</a></li>
+              <li><a href="gallery.html" class="text-gray-400 hover:text-primary transition duration-300">Gallery</a></li>
+              <li><a href="contact.html" class="text-gray-400 hover:text-primary transition duration-300">Support Team</a></li>
+              <li><a href="terms.html" class="text-gray-400 hover:text-primary transition duration-300">TOS</a></li>
+            </ul>
+          </div>
+          
+          <!-- Column 3 -->
+          <div>
+            <h4 class="text-white font-bold mb-4">TOS</h4>
+            <ul class="space-y-2">
+              <li><a href="terms.html" class="text-gray-400 hover:text-primary transition duration-300">Terms of Service</a></li>
+              <li><a href="privacy.html" class="text-gray-400 hover:text-primary transition duration-300">Privacy Policy</a></li>
+              <li><a href="rules.html" class="text-gray-400 hover:text-primary transition duration-300">Rules</a></li>
+            </ul>
+          </div>
+          
+          <!-- Column 4 -->
+          <div>
+            <h4 class="text-white font-bold mb-4">Connect</h4>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-400 hover:text-primary transition duration-300">
+                <i class="fab fa-discord text-xl"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-primary transition duration-300">
+                <i class="fab fa-instagram text-xl"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-primary transition duration-300">
+                <i class="fab fa-youtube text-xl"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-primary transition duration-300">
+                <i class="fab fa-twitter text-xl"></i>
+              </a>
+            </div>
+            <div class="mt-4">
+              <p class="text-gray-400">Server IP:</p>
+              <div class="flex items-center mt-1">
+                <code class="text-yellow-400 text-sm">play.eyesroleplay.com</code>
+                <button class="copy-ip-footer ml-2 text-gray-400 hover:text-primary">
+                  <i class="fas fa-copy"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <hr class="border-gray-800 my-6">
+        
+        <div class="text-center text-gray-500 text-sm">
+          <p>&copy; 2025 PARADISE ROLEPLAY. All rights reserved.</p>
+          <p class="mt-2">Not affiliated with Rockstar Games, Inc. or Take-Two Interactive Software, Inc.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="mobile-menu.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html> 
